@@ -1,0 +1,17 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "regions": ["hnd1"],
+  "env": {
+    "NEXT_SHARP_PATH": "./node_modules/sharp",
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "pk_test_c21pbGluZy1oeWVuYS00My5jbGVyay5hY2NvdW50cy5kZXYk",
+    "CLERK_SECRET_KEY": "sk_test_b6mlO6Zw24ZZ6aLz71U5IQZxRqHXTMmN4fhfxnTRrV",
+    "NEXT_PUBLIC_CLERK_SIGN_IN_URL": "/auth/login",
+    "NEXT_PUBLIC_CLERK_SIGN_UP_URL": "/auth/register",
+    "NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL": "/mypage",
+    "NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL": "/mypage"
+  }
+} 
