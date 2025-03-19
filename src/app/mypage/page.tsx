@@ -12,8 +12,8 @@ export default async function MyPage() {
       return (
         <div className="flex min-h-screen flex-col items-center justify-center py-2">
           <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">認証が必要です</h1>
-            <p className="mb-4">ログインしてください</p>
+            <h1 className="text-2xl font-bold mb-4 text-gray-800">認証が必要です</h1>
+            <p className="mb-4 text-gray-700">ログインしてください</p>
             <Link href="/auth/login" className="text-blue-500 underline">
               ログインページへ
             </Link>
@@ -37,10 +37,10 @@ export default async function MyPage() {
     };
     
     return (
-      <div className="flex min-h-screen flex-col items-center py-12 px-4">
+      <div className="flex min-h-screen flex-col items-center py-12 px-4 bg-gray-50">
         <div className="w-full max-w-4xl">
           <div className="flex justify-between items-center mb-12">
-            <h1 className="text-3xl font-bold">マイページ</h1>
+            <h1 className="text-3xl font-bold text-gray-800">マイページ</h1>
             <UserButton afterSignOutUrl="/" />
           </div>
           
@@ -52,7 +52,7 @@ export default async function MyPage() {
                 )}
               </div>
               <div>
-                <h2 className="text-2xl font-semibold">
+                <h2 className="text-2xl font-semibold text-gray-800">
                   こんにちは、{user?.firstName || user?.username || "ゲスト"}さん
                 </h2>
                 <p className="text-gray-600">{user?.emailAddresses[0]?.emailAddress || ""}</p>
@@ -60,12 +60,12 @@ export default async function MyPage() {
             </div>
             
             <div className="border-t pt-4">
-              <h3 className="text-lg font-medium mb-2">サブスクリプションプラン</h3>
+              <h3 className="text-lg font-medium mb-2 text-gray-800">サブスクリプションプラン</h3>
               <p className="text-gray-700 mb-4">
-                現在のプラン: <span className="font-semibold">{planDisplayNames[subscriptionData.plan] || '無料プラン'}</span>
+                現在のプラン: <span className="font-semibold text-gray-900">{planDisplayNames[subscriptionData.plan] || '無料プラン'}</span>
               </p>
               <p className="text-gray-700 mb-4">
-                残りの API コール数: <span className="font-semibold">{subscriptionData.apiCallsRemaining}</span>
+                残りの API コール数: <span className="font-semibold text-gray-900">{subscriptionData.apiCallsRemaining}</span>
               </p>
               
               <div className="flex flex-wrap gap-4 mt-6">
@@ -91,8 +91,8 @@ export default async function MyPage() {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center py-2">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">エラーが発生しました</h1>
-          <p className="mb-4">ログインしてアクセスしてください</p>
+          <h1 className="text-2xl font-bold mb-4 text-gray-800">エラーが発生しました</h1>
+          <p className="mb-4 text-gray-700">ログインしてアクセスしてください</p>
           <Link href="/auth/login" className="text-blue-500 underline">
             ログインページへ
           </Link>

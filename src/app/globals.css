@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* テキストカラーを明示的に設定 */
+.text-default {
+  color: #171717;
+}
+
+/* ダークモード用 */
+@media (prefers-color-scheme: dark) {
+  .text-default {
+    color: #ededed;
+  }
+}

@@ -48,7 +48,7 @@ export default function ImageGenerator({ apiCallsRemaining }: ImageGeneratorProp
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      <h3 className="text-lg font-medium mb-4">画像生成</h3>
+      <h3 className="text-lg font-medium mb-4 text-gray-800">画像生成</h3>
       
       {apiCallsRemaining <= 0 && (
         <div className="mb-4 p-3 bg-yellow-50 text-yellow-800 rounded-md">
@@ -65,7 +65,7 @@ export default function ImageGenerator({ apiCallsRemaining }: ImageGeneratorProp
             id="prompt"
             name="prompt"
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-800"
             placeholder="生成したい画像の説明を入力してください..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
@@ -86,25 +86,19 @@ export default function ImageGenerator({ apiCallsRemaining }: ImageGeneratorProp
       </form>
       
       {error && (
-        <div className="mt-4 p-3 bg-red-50 text-red-800 rounded-md">
+        <div className="mt-4 p-3 bg-red-50 text-red-700 rounded-md">
           {error}
         </div>
       )}
       
-      <div className="mt-8">
-        <h4 className="text-md font-medium mb-2">生成結果</h4>
-        <div className="h-64 bg-gray-100 rounded-md flex items-center justify-center overflow-hidden">
-          {generatedImage ? (
-            <img 
-              src={generatedImage} 
-              alt="Generated image" 
-              className="max-w-full max-h-full object-contain"
-            />
-          ) : (
-            <p className="text-gray-500">画像が生成されるとここに表示されます</p>
-          )}
+      {generatedImage && !error && (
+        <div className="mt-6">
+          <h4 className="text-md font-medium mb-3 text-gray-800">生成された画像</h4>
+          <div className="border rounded-md overflow-hidden">
+            <img src={generatedImage} alt="Generated content" className="w-full h-auto" />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
