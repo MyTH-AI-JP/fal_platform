@@ -1,23 +1,20 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { authMiddleware } from "@clerk/nextjs";
 
-const isPublicRoute = createRouteMatcher([
-  "/",
-  "/auth/login(.*)",
-  "/auth/register(.*)",
-  "/api/webhook/stripe"
-]);
-
-export default clerkMiddleware(async (auth, req) => {
-  if (!isPublicRoute(req)) {
-    await auth.protect();
-  }
+// パブリックルートの設定（認証不要なページ）
+export default authMiddleware({
+  publicRoutes: [
+    "/",
+    "/auth/login(.*)",
+    "/auth/register(.*)",
+    "/api/webhook/stripe"
+  ],
+  ignoredRoutes: [
+    "/((?!api|trpc))/_next/static/(.*)$",
+    "/favicon.ico",
+    "/_next/image"
+  ]
 });
 
 export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files
-    "/((?!_next/static|_next/image|favicon.ico).*)",
-    // Always run for API routes
-    "/(api|trpc)(.*)",
-  ],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
